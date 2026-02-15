@@ -7,7 +7,7 @@ const auth = (req,res,next)=>{
     if(!validation){
         res.status(400).json({
             succes:false,
-            message:"Unauthorized Acces"
+            message:"Unauthorized Access"
         })
     }
 

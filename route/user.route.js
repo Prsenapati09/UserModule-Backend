@@ -10,6 +10,7 @@ router.get("/Login",usercontroller.Login)
 router.get("/home",auth,adminroute,(req,res)=>{
     res.send("Welcome to home page")
 }) 
+// router.put("/change-password",auth,usercontroller.changepassword)
 
 
 module.exports = router
