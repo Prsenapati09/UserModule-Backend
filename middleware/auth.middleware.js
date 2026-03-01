@@ -14,7 +14,7 @@ const auth = (req,res,next)=>{
     const userinfo = jwt.verify(validation,process.env.JWT_SECRET)
 
     req.userinfo = userinfo
-    console.log(userinfo)
+    // console.log(userinfo)
     next()
 
 }

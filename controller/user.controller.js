@@ -89,7 +89,50 @@ const Login = async (req,res)=>{
 }
 
 
+const Updatepassword = async (req,res)=>{
+
+    try {
+        
+    } catch (error) {
+        const id = await req.userinfo.userid
+        const password = req.body
+        if(!password){
+            res.status(400).send("password not found")
+        }
+    
+        console.log(id)
+        if (!id){
+            res.status(404).josn({
+                success:false,
+                message:"Userid not found !"
+            })
+        }
+    
+        const salt = await bcrypt.genSalt(10)
+        const hash = await bcrypt.hash(password.password,salt)
+        const user = await model.findByIdAndUpdate(
+            id,
+            {password:hash})
+    
+        if (!user){
+            res.status(400).send("password not update try again !")
+        }
+
+        res.status(200).josn({
+            success:false,
+            message:"Password update successfully"
+        })
+
+        res.status(400).json({
+            succes:false,
+            message:"Error ",
+            error:error
+        })
+    }
+
+}
 module.exports = {
     register,
     Login,
+    Updatepassword
 }

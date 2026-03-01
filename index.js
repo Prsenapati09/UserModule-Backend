@@ -13,9 +13,7 @@ app.get("/",(req,res)=>{
 const user = require("./route/user.route")
 
 // use routes
-
 app.use("/user",user)
-
 
 app.listen(3000,()=>{
     console.log("server start")
