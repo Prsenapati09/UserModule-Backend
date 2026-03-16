@@ -1,4 +1,4 @@
-const db = require('./db')
+const db = require('./config/db')
 const express = require('express')
 const app = express()
 db
@@ -11,9 +11,11 @@ app.get("/",(req,res)=>{
 
 // import routes
 const user = require("./route/user.route")
+const image = require("./route/image.route")
 
 // use routes
 app.use("/user",user)
+app.use("/upload",image)
 
 app.listen(3000,()=>{
     console.log("server start")
