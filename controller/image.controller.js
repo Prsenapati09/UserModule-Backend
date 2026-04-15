@@ -1,11 +1,9 @@
 const image  = require('../model/image.model')
-// const path = require('path')
 const {cloudinaryToCloudinary} = require('../helper/cloudinary.helper')
 
 const uploadImage = async (req,res)=>{
 
     try {
-
         // const file =req.body
         if(!req.file){
             res.status(400).json({
@@ -23,6 +21,7 @@ const uploadImage = async (req,res)=>{
         })
 
         await newUploadImage.save()
+
         res.status(201).json({
             sucess:true,
             message:"Image uploaded sucessfully",
