@@ -7,6 +7,6 @@ const upload = require('../middleware/upload.middleware')
 
 const controller = require('../controller/image.controller')
 
-router.post('/image',auth,admin,upload.single('image'),controller.uploadImage)
+router.post('/image',auth,admin,upload.single('Pro'),controller.uploadImage)
 
 module.exports = router
